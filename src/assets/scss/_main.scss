@@ -21,7 +21,8 @@ body{
 
 .navi{
     padding-left: 100px;
-    background-color: white;
+    background-color: $trans-black;
+    color: $white;
 }
 
 .background{
@@ -36,7 +37,7 @@ body{
 .side-menu{
     position: absolute;
     right: 0;
-    top: 145px;
+    top: 158px;
 
     border-radius: 0 0 0 10px;
     padding-top: 30px;
@@ -47,3 +48,12 @@ body{
     color: $white;
     background-color: $trans-black;
 }
+
+.row{
+    margin-right: 0px;
+}
+
+.filter-white {
+    -webkit-filter: brightness(0) invert(1);
+    filter: brightness(0) invert(1);
+  }
