@@ -1,0 +1,57 @@
+@import "color";
+@import "font";
+
+html {
+    font-size: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+    margin: 0;
+    padding: 0;
+    color: inherit;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: SFProDisplay-Regular;
+    background: url('../img/maps.svg'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.navi{
+    padding-left: 100px;
+    background-color: $trans-black;
+    color: $white;
+}
+
+.background{
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.main-menu{
+    margin-left: 5%;
+    padding: 2%;
+}
+
+.side-menu{
+    padding: 2%;
+
+    border-radius: 0 0 0 10px;
+    padding-top: 30px;
+}
+
+.footer{
+    text-align: center;
+    color: $white;
+    background-color: $trans-black;
+}
+
+.row{
+    margin-right: 0px;
+}
+
+.filter-white {
+    -webkit-filter: brightness(0) invert(1);
+    filter: brightness(0) invert(1);
+  }
