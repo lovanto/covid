@@ -66,5 +66,35 @@
 
 /* For general iPad-Pro layouts */
 @media only screen and (device-width: 1024px) {
-    
+    .navi {
+        padding: 0px !important;
+        text-align: center;
+
+        & #container-icon {
+            margin-left: 3%;
+        }
+
+        & #title{
+            margin-top: 0px;
+            margin-left: 0%;
+        }
+
+        & #sources{
+            margin-left: -30px;
+            margin-inline-end: -114px;
+        }
+    }
+
+    #main-menu {
+        
+        & #right-area{
+            width: 143% !important;
+        }
+
+        & #left-area{
+            width: 400% !important;
+            margin-top: 810px;
+            margin-left: -720px;
+        }
+    }
 }
