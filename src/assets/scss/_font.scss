@@ -1,0 +1,21 @@
+@font-face {
+    font-family: Nexa;
+    src: url(/src/assets/font/Nexa.woff);
+}
+
+@font-face {
+    font-family: SFProDisplay-Regular;
+    src: url(/src/assets/font/SFProDisplay-Regular.woff);
+}
+
+@font-face {
+    font-family: ProximaNovaReg;
+    src: url(/src/assets/font/ProximaNovaReg.ttf);
+}
+
+.header {
+    font-family: Nexa;
+    font-size: 40px;
+    text-transform: uppercase;
+    color: rgb(33, 43, 54);
+}
