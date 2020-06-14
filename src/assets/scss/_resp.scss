@@ -11,4 +11,15 @@
             margin-bottom: -40px;
         }
     }
+
+    #main-menu{
+        & article{
+            padding: 20px 20px 0 20px;
+
+            & #country{
+                margin-left: 0px !important;
+                width: 100% !important;
+            }
+        }
+    }
 }
