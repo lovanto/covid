@@ -1,29 +1,50 @@
+/* For general mobile phone layouts */
 @media screen and (max-width: 1024px) {
     .navi {
         padding: 20px !important;
         text-align: center;
 
-        & #container-icon{
+        & #container-icon {
             margin-left: 33%;
         }
 
-        & #virus-icon{
+        & #virus-icon {
             margin-bottom: -40px;
         }
     }
 
-    #main-menu{
-        & article{
+    #main-menu {
+        & article {
             padding: 20px 20px 0 20px;
 
-            & #country{
+            & #country {
                 margin-left: 0px !important;
                 width: 100% !important;
             }
         }
     }
 
-    #side-menu{
+    #side-menu {
         padding: 30px 20px 30px 40px;
     }
+}
+
+/* For general iPad layouts */
+@media only screen and (device-width: 768px) {
+    #main-menu {
+        
+        & #right-area{
+            width: 80% !important;
+        }
+
+        & #left-area{
+            width: 170% !important;
+            margin-left: -125px;
+        }
+    }
+}
+
+/* For general iPad-Pro layouts */
+@media only screen and (device-width: 1024px) {
+    
 }
