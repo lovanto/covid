@@ -1,0 +1,14 @@
+@media screen and (max-width: 1024px) {
+    .navi {
+        padding: 20px !important;
+        text-align: center;
+
+        & #container-icon{
+            margin-left: 33%;
+        }
+
+        & #virus-icon{
+            margin-bottom: -40px;
+        }
+    }
+}
