@@ -1,0 +1,25 @@
+@import "color";
+
+html {
+    font-size: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+    margin: 0;
+    padding: 0;
+    color: inherit;
+    box-sizing: border-box;
+}
+
+body{
+    background: url('../img/maps.svg'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.container{
+}
+
+.background{
+    background: rgba(255, 255, 255, 0.9);
+}
