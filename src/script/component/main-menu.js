@@ -9,9 +9,7 @@ class MainMenu extends HTMLElement {
         <div id="right-area">
                 <div class="header mb-3">Search for Country's Data Update</div>
 
-                <select name="country" id="country" class="form-control mb-3" style="width: 50%;margin-left: 25%;">
-                    <option value="Indonesi">Indonesia</option>
-                </select>
+                <select-country></select-country>
 
                 <div class="card bg-light mb-3" style="height: 600px;">
                     <div class="card-body">
