@@ -4,8 +4,7 @@ const path = require("path");
 
 module.exports = {
   entry: [
-    "./src/app.js",
-    "font-awesome/scss/font-awesome.scss"
+    "./src/app.js"
   ],
   output: {
     path: path.resolve(__dirname, "dist"),
