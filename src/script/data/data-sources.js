@@ -62,7 +62,7 @@ class DataSource {
             });
     }
 
-    static dataCountry(country) {
+    static specificCountry(country) {
         return fetch(`https://covid19.mathdro.id/api/countries/${country}`)
             .then(response => {
                 return response.json()
