@@ -5,17 +5,22 @@ class SelectCountry extends HTMLElement {
     connectedCallback() {
         this.render();
     }
-
+ 
     render() {
         this.innerHTML = ``;
-
         let htmlContent = '<select name="country" id="country" class="form-control mb-3" style="width: 50%;margin-left: 25%;">';
 
-        // Categories
+        // create option from json
         DataCountry.countries.map((country) => {
-            htmlContent += `
-                <option value="${country.name}">${country.name}</option>
-            `;
+            if (country.name !== "Indonesia"){
+                htmlContent += `
+                    <option value="${country.name}">${country.name}</option>
+                `;
+            }else{
+                htmlContent += `
+                    <option value="${country.name}" selected>${country.name}</option>
+                `;
+            }
         });
 
         this.innerHTML += htmlContent;

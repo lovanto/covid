@@ -1,3 +1,5 @@
+import DataSource from '../data/data-sources.js';
+
 class HeaderNavigation extends HTMLElement {
 
     connectedCallback() {
@@ -5,6 +7,7 @@ class HeaderNavigation extends HTMLElement {
     }
 
     render() {
+
         this.innerHTML = `
         <div class="row navi">
             <div class="p-4" id="container-icon">
@@ -25,8 +28,8 @@ class HeaderNavigation extends HTMLElement {
                     <div class="header" style="margin-top: 10px;">Coronavirus (COVID-19) Outbreak</div>
                     <div class="row">
                         <p class="col-sm-5" id="sources"> Data source from <a data-v-ea1dc9d2="" href="https://github.com/mathdroid/covid-19-api"
-                                target="_blank" class="tiya"> mathdroid </a> API.</p>
-                        <p class="col-sm-7">Latest Update 2020-06-14T16:33:12.000Z</p>
+                                target="_blank"> mathdroid </a> API.</p>
+                        <p class="col-sm-7">Latest Update <span id="lastUpdate"></span></p>
                     </div>
                 </div>
                 <div data-v-ea1dc9d2="" class="spacer"></div>

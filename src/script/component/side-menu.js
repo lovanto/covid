@@ -13,7 +13,7 @@ class SideMenu extends HTMLElement {
                     <div class="card-body">
                         <h5 class="card-title">Recovered</h5>
                         <div class="row">
-                            <div class="col-md-8" style="font-size: 30px;">3,729,054</div>
+                            <div class="col-md-8" style="font-size: 30px;"><span id="recovered"></span></div>
                             <div class="col-md-4">48% from yesterday</div>
                         </div>
                     </div>
@@ -23,7 +23,7 @@ class SideMenu extends HTMLElement {
                     <div class="card-body">
                         <h5 class="card-title">Confirmed</h5>
                         <div class="row">
-                            <div class="col-md-8" style="font-size: 30px;">7,820,023</div>
+                            <div class="col-md-8" style="font-size: 30px;"><span id="confirmed"></span></div>
                             <div class="col-md-4">4% from yesterday</div>
                         </div>
                     </div>
@@ -33,7 +33,7 @@ class SideMenu extends HTMLElement {
                     <div class="card-body">
                         <h5 class="card-title">Death</h5>
                         <div class="row">
-                            <div class="col-md-8" style="font-size: 30px;">430,694</div>
+                            <div class="col-md-8" style="font-size: 30px;"><span id="deaths"></span></div>
                             <div class="col-md-4">6% from yesterday</div>
                         </div>
                     </div>
