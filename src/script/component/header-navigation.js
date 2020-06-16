@@ -1,5 +1,3 @@
-import DataSource from '../data/data-sources.js';
-
 class HeaderNavigation extends HTMLElement {
 
     connectedCallback() {
