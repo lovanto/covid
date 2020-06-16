@@ -3,7 +3,7 @@ import 'chart.js';
 import "regenerator-runtime";
 
 import "./assets/font/Nexa.woff";
-import "./assets/font/SFProDisplay-Regular.woff"
+import "./assets/font/SFProDisplay-Regular.woff";
 import "./assets/scss/style.scss";
 
 import "./script/component/header-navigation.js"
