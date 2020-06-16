@@ -47,13 +47,6 @@ module.exports = {
           'image-webpack-loader?bypassOnDebug'
         ]
       },
-      {
-        test: /font-awesome\.config\.js/,
-        use: [
-          { loader: 'style-loader' },
-          { loader: 'font-awesome-loader' }
-        ]
-      },
     ],
   },
   plugins: [
