@@ -15,6 +15,7 @@
     <main class="background">
         <div class="row" id="main-menu">
             <article class="main-menu col-md-8">
+                <span name="date" id="date" value="awd" style="display: none;"></span>
                 <main-menu></main-menu>
             </article>
 
@@ -29,35 +30,4 @@
                 target="_blank">Lovanto</a></div>
     </footer>
 </body>
-
-<script>
-    var ctx = document.getElementById('myChart').getContext('2d');
-    var myChart = new Chart(ctx, {
-        type: 'bar',
-    data: {
-      labels: ["1900", "1950", "2000", "2050", "2100", "2150", "2200"],
-      datasets: [
-        {
-          label: "Recovered",
-          backgroundColor: "#28a745",
-          data: [133,221,783,978,221,783,1078]
-        }, {
-          label: "Confirmed",
-          backgroundColor: "#ffc107",
-          data: [408,547,675,734,408,547,675]
-        }, {
-          label: "Deaths",
-          backgroundColor: "#dc3545",
-          data: [140,154,167,173,154,167,173]
-        }
-      ]
-    },
-    options: {
-      title: {
-        display: true,
-        text: 'Covid-19 Data Last 7 Days'
-      }
-    }
-    });
-</script>
 </html>

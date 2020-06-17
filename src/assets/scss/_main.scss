@@ -19,6 +19,10 @@ body{
     background-attachment: fixed;
 }
 
+canvas:hover{
+    pointer-events: none;
+}
+
 .navi{
     padding-left: 100px;
     background-color: $trans-black;
