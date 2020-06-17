@@ -1,4 +1,6 @@
-var globConfirmed = 0, globRecovered = 0, globDeaths = 0;
+var globConfirmed = 0,
+    globRecovered = 0,
+    globDeaths = 0;
 
 class DataSource {
 
@@ -13,7 +15,7 @@ class DataSource {
                 globConfirmed = responseJson.confirmed.value;
                 globRecovered = responseJson.recovered.value;
                 globDeaths = responseJson.deaths.value;
-                
+
                 document.getElementById('lastUpdate').innerHTML = responseJson.lastUpdate;
                 document.getElementById('confirmed').innerHTML = new Intl.NumberFormat('ja-JP').format(responseJson.confirmed.value);
                 document.getElementById('recovered').innerHTML = new Intl.NumberFormat('ja-JP').format(responseJson.recovered.value);
@@ -32,15 +34,14 @@ class DataSource {
             .then(responseJson => {
                 console.log(responseJson);
 
-                var confirmed = 0, recovered = 0, deaths = 0;
-                for (let i=0; i<responseJson.length; i++){
+                var confirmed = 0,
+                    recovered = 0,
+                    deaths = 0;
+                for (let i = 0; i < responseJson.length; i++) {
                     confirmed += Number(responseJson[i].confirmed);
                     recovered += Number(responseJson[i].recovered);
                     deaths += Number(responseJson[i].deaths);
                 }
-                console.log(globConfirmed - confirmed);
-                console.log(globRecovered - recovered);
-                console.log(globDeaths - deaths);
 
                 var pConfirmed = ((globConfirmed - confirmed) / confirmed) * 100;
                 var pRecovered = ((globRecovered - recovered) / recovered) * 100;
@@ -62,18 +63,57 @@ class DataSource {
             });
     }
 
-    static dataCountry(country) {
+    static specificCountry(country) {
         return fetch(`https://covid19.mathdro.id/api/countries/${country}`)
             .then(response => {
                 return response.json()
             })
             .then(responseJson => {
-                if (responseJson.results) {
-                    return Promise.resolve(responseJson.results);
-                } else {
-                    return Promise.reject(`${country} is not found`)
-                }
+                // return Promise.resolve(responseJson.results);
+                console.log(responseJson);
+
+                var dateInput = document.getElementById('date').innerHTML;
+                var recovered = responseJson.recovered.value;
+                var confirmed = responseJson.confirmed.value;
+                var deaths = responseJson.deaths.value;
+
+                var ctx = document.getElementById('myChart').getContext('2d');
+                myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: [dateInput],
+                        datasets: [{
+                            label: "Recovered",
+                            backgroundColor: "#28a745",
+                            data: [recovered]
+                        }, {
+                            label: "Confirmed",
+                            backgroundColor: "#ffc107",
+                            data: [confirmed]
+                        }, {
+                            label: "Deaths",
+                            backgroundColor: "#dc3545",
+                            data: [deaths]
+                        }]
+                    },
+                    options: {
+                        showTooltips: false,
+                        tooltips: {enabled: false},
+                        hover: {mode: null},
+                        title: {
+                            display: true,
+                            text: `Data Covid-19 at ${country} Today`
+                        }
+                    }
+                });
+                myChart.update({
+                    duration: 3000,
+                    easing: 'easeOutBounce'
+                });
             })
+            .catch(error => {
+                console.log(error);
+            });
     }
 }
 
