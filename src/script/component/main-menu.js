@@ -32,8 +32,9 @@ class MainMenu extends HTMLElement {
                 user-select: none;
                 text-align: center;
             }
-        </style>`;
-        this.innerHTML += `<h2 class="placeholder">${message}</h2>`;
+        </style>
+        
+        <h2 class="placeholder">${message}</h2>`;
     }
 }
 
