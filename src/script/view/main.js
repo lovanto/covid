@@ -2,23 +2,22 @@ import DataSource from '../data/data-sources.js';
 
 const main = () => {
     // get date today
-    var today = new Date(), yesterday = new Date();
-    var dd = String(today.getDate()).padStart(2, '0');
-    var mm = String(today.getMonth() + 1).padStart(2, '0');
-    var yyyy = today.getFullYear();
+    let today = new Date(), yesterday = new Date();
+    let dd = String(today.getDate()).padStart(2, '0');
+    let mm = String(today.getMonth() + 1).padStart(2, '0');
+    let yyyy = today.getFullYear();
     yesterday = mm + '-' + (dd-2) + '-' + yyyy;
     today = mm + '-' + dd + '-' + yyyy;
 
     // init
     const searchElement = document.querySelector("select-country");
-    // const receipeListElement = document.querySelector("#ajwbdl");
+    const mainMenu = document.querySelector("main-menu");
 
     const onButtonSearchClicked = () => {
         searchCountry(searchElement.value);
     };
 
     const searchCountry = async (keyword) => {
-        // loaderElement.style.display = 'block';
         try {
             const result = await DataSource.specificCountry(keyword);
             renderResult(result);
@@ -28,13 +27,11 @@ const main = () => {
     }
 
     const renderResult = results => {
-        // loaderElement.style.display = 'none';
-        receipeListElement.receipes = results;
+        mainMenu.render;
     };
 
     const fallbackResult = message => {
-        // loaderElement.style.display = 'none';
-        receipeListElement.renderError(message);
+        mainMenu.renderError(message);
     };
 
     searchElement.clickEvent = onButtonSearchClicked;

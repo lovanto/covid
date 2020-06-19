@@ -1,4 +1,4 @@
-var globConfirmed = 0,
+let globConfirmed = 0,
     globRecovered = 0,
     globDeaths = 0;
 
@@ -6,9 +6,7 @@ class DataSource {
 
     static dataGlobal() {
         fetch(`https://covid19.mathdro.id/api`)
-            .then(response => {
-                return response.json();
-            })
+            .then(response => response.json())
             .then(responseJson => {
                 console.log(responseJson);
 
@@ -21,31 +19,28 @@ class DataSource {
                 document.getElementById('recovered').innerHTML = new Intl.NumberFormat('ja-JP').format(responseJson.recovered.value);
                 document.getElementById('deaths').innerHTML = new Intl.NumberFormat('ja-JP').format(responseJson.deaths.value);
             })
-            .catch(error => {
-                console.log(error);
-            });
+            .catch(error => console.log(error));
     }
 
     static dataSummary(date) {
         fetch(`https://covid19.mathdro.id/api/daily/${date}`)
-            .then(response => {
-                return response.json();
-            })
+            .then(response => response.json())
             .then(responseJson => {
                 console.log(responseJson);
 
-                var confirmed = 0,
+                let confirmed = 0,
                     recovered = 0,
                     deaths = 0;
+
                 for (let i = 0; i < responseJson.length; i++) {
                     confirmed += Number(responseJson[i].confirmed);
                     recovered += Number(responseJson[i].recovered);
                     deaths += Number(responseJson[i].deaths);
                 }
 
-                var pConfirmed = ((globConfirmed - confirmed) / confirmed) * 100;
-                var pRecovered = ((globRecovered - recovered) / recovered) * 100;
-                var pDeaths = ((globDeaths - deaths) / deaths) * 100;
+                const pConfirmed = ((globConfirmed - confirmed) / confirmed) * 100;
+                const pRecovered = ((globRecovered - recovered) / recovered) * 100;
+                const pDeaths = ((globDeaths - deaths) / deaths) * 100;
 
                 confirmed = globConfirmed - confirmed;
                 recovered = globRecovered - recovered;
@@ -58,27 +53,22 @@ class DataSource {
                 document.getElementById('percentRecovered').innerHTML = new Intl.NumberFormat('ja-JP').format(recovered);
                 document.getElementById('percentDeaths').innerHTML = new Intl.NumberFormat('ja-JP').format(deaths);
             })
-            .catch(error => {
-                console.log(error);
-            });
+            .catch(error => console.log(error));
     }
 
     static specificCountry(country) {
         return fetch(`https://covid19.mathdro.id/api/countries/${country}`)
-            .then(response => {
-                return response.json()
-            })
+            .then(response => response.json())
             .then(responseJson => {
-                // return Promise.resolve(responseJson.results);
                 console.log(responseJson);
 
-                var dateInput = document.getElementById('date').innerHTML;
-                var recovered = responseJson.recovered.value;
-                var confirmed = responseJson.confirmed.value;
-                var deaths = responseJson.deaths.value;
+                const dateInput = document.getElementById('date').innerHTML;
+                const recovered = responseJson.recovered.value;
+                const confirmed = responseJson.confirmed.value;
+                const deaths = responseJson.deaths.value;
 
-                var ctx = document.getElementById('myChart').getContext('2d');
-                myChart = new Chart(ctx, {
+                const ctx = document.getElementById('myChart').getContext('2d');
+                const myChart = new Chart(ctx, {
                     type: 'bar',
                     data: {
                         labels: [dateInput],
@@ -98,8 +88,12 @@ class DataSource {
                     },
                     options: {
                         showTooltips: false,
-                        tooltips: {enabled: false},
-                        hover: {mode: null},
+                        tooltips: {
+                            enabled: false
+                        },
+                        hover: {
+                            mode: null
+                        },
                         title: {
                             display: true,
                             text: `Data Covid-19 at ${country} Today`
@@ -111,9 +105,7 @@ class DataSource {
                     easing: 'easeOutBounce'
                 });
             })
-            .catch(error => {
-                console.log(error);
-            });
+            .catch(error => console.log(error));
     }
 }
 
