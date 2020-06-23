@@ -15,9 +15,10 @@ class DataSource {
                 globDeaths = responseJson.deaths.value;
 
                 document.getElementById('lastUpdate').innerHTML = responseJson.lastUpdate;
-                document.getElementById('confirmed').innerHTML = new Intl.NumberFormat('ja-JP').format(responseJson.confirmed.value);
-                document.getElementById('recovered').innerHTML = new Intl.NumberFormat('ja-JP').format(responseJson.recovered.value);
-                document.getElementById('deaths').innerHTML = new Intl.NumberFormat('ja-JP').format(responseJson.deaths.value);
+                document.getElementById('confirmed').innerHTML = new Intl.NumberFormat('ja-JP').format(globConfirmed);
+                document.getElementById('recovered').innerHTML = new Intl.NumberFormat('ja-JP').format(globRecovered);
+                document.getElementById('deaths').innerHTML = new Intl.NumberFormat('ja-JP').format(globDeaths);
+                document.getElementById('total').innerHTML = new Intl.NumberFormat('ja-JP').format(globConfirmed+globRecovered+globDeaths);
             })
             .catch(error => console.log(error));
     }
@@ -49,9 +50,11 @@ class DataSource {
                 document.getElementById('pConfirmed').innerHTML = new Intl.NumberFormat('ja-JP').format(pConfirmed);
                 document.getElementById('pRecovered').innerHTML = new Intl.NumberFormat('ja-JP').format(pRecovered);
                 document.getElementById('pDeaths').innerHTML = new Intl.NumberFormat('ja-JP').format(pDeaths);
+                document.getElementById('pTotal').innerHTML = new Intl.NumberFormat('ja-JP').format(pConfirmed+pRecovered+pDeaths);
                 document.getElementById('percentConfirmed').innerHTML = new Intl.NumberFormat('ja-JP').format(confirmed);
                 document.getElementById('percentRecovered').innerHTML = new Intl.NumberFormat('ja-JP').format(recovered);
                 document.getElementById('percentDeaths').innerHTML = new Intl.NumberFormat('ja-JP').format(deaths);
+                document.getElementById('percentTotal').innerHTML = new Intl.NumberFormat('ja-JP').format(confirmed+recovered+deaths);
             })
             .catch(error => console.log(error));
     }
