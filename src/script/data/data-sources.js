@@ -106,7 +106,7 @@ class DataSource {
                         title: {
                             display: true,
                             fontSize: 15,
-                            text: `Data Covid-19 at ${country} Today`
+                            text: `Data Covid-19 in ${country} Today`
                         }
                     }
                 });
