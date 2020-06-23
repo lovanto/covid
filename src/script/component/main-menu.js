@@ -14,6 +14,14 @@ class MainMenu extends HTMLElement {
                 <div class="card bg-light mb-3">
                     <div class="card-body" id="conChart">
                         <canvas id="myChart"></canvas>
+                        <div class="detail">
+                            <span class="header-detail">Detail</span>
+                            <div class="sub mt-1">
+                                Recovered: <span id="detailRec" class="mt-1"></span> People<br>
+                                Confirmed: <span id="detailCon"></span> People<br>
+                                Deaths: <span id="detailDea"></span> People
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

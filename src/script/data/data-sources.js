@@ -67,6 +67,10 @@ class DataSource {
                 const confirmed = responseJson.confirmed.value;
                 const deaths = responseJson.deaths.value;
 
+                document.getElementById('detailRec').innerHTML = new Intl.NumberFormat('ja-JP').format(recovered);
+                document.getElementById('detailCon').innerHTML = new Intl.NumberFormat('ja-JP').format(confirmed);
+                document.getElementById('detailDea').innerHTML = new Intl.NumberFormat('ja-JP').format(deaths);
+
                 const ctx = document.getElementById('myChart').getContext('2d');
                 const myChart = new Chart(ctx, {
                     type: 'bar',
@@ -96,6 +100,7 @@ class DataSource {
                         },
                         title: {
                             display: true,
+                            fontSize: 15,
                             text: `Data Covid-19 at ${country} Today`
                         }
                     }
