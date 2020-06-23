@@ -67,9 +67,11 @@ class DataSource {
                 const confirmed = responseJson.confirmed.value;
                 const deaths = responseJson.deaths.value;
 
+                document.getElementById('countryDetail').innerHTML = country;
                 document.getElementById('detailRec').innerHTML = new Intl.NumberFormat('ja-JP').format(recovered);
                 document.getElementById('detailCon').innerHTML = new Intl.NumberFormat('ja-JP').format(confirmed);
                 document.getElementById('detailDea').innerHTML = new Intl.NumberFormat('ja-JP').format(deaths);
+                document.getElementById('detailTot').innerHTML = new Intl.NumberFormat('ja-JP').format(recovered+confirmed+deaths);
 
                 const ctx = document.getElementById('myChart').getContext('2d');
                 const myChart = new Chart(ctx, {

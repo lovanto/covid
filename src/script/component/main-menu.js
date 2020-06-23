@@ -14,12 +14,30 @@ class MainMenu extends HTMLElement {
                 <div class="card bg-light mb-3">
                     <div class="card-body" id="conChart">
                         <canvas id="myChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="card bg-light mb-3">
+                    <div class="card-body">
                         <div class="detail">
-                            <span class="header-detail">Detail</span>
-                            <div class="sub mt-1">
-                                Recovered: <span id="detailRec" class="mt-1"></span> People<br>
-                                Confirmed: <span id="detailCon"></span> People<br>
-                                Deaths: <span id="detailDea"></span> People
+                            <span class="header-menu">Detail Covid Effects in <span id="countryDetail"></span></span>
+                            <div class="sub mt-4 row">
+                                <div class="col-md-3 header-detail mb-3 green" align="center">
+                                    <div class="mb-3"><img src="/src/assets/img/recovered.png" alt="Recovered" width="100px"></div>
+                                    <span id="detailRec" class="mt-1"></span><br>Recovered
+                                </div>
+                                <div class="col-md-3 header-detail mb-3 orange" align="center">
+                                    <div class="mb-3"><img src="/src/assets/img/confirmed.png" alt="Confirmed" width="100px"></div>
+                                    <span id="detailCon"></span><br>Confirmed
+                                </div>
+                                <div class="col-md-3 header-detail mb-3 red" align="center">
+                                    <div class="mb-3"><img src="/src/assets/img/deaths.png" alt="Deaths" width="100px"></div>
+                                    <span id="detailDea"></span><br>Deaths
+                                </div>
+                                <div class="col-md-3 header-detail mb-3" align="center">
+                                    <div class="mb-3"><img src="/src/assets/img/virusTotal.png" alt="Total Effect" width="100px"></div>
+                                    <span id="detailTot" class="mt-1"></span><br>Total Cases
+                                </div>
                             </div>
                         </div>
                     </div>
