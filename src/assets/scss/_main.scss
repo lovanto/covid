@@ -66,3 +66,35 @@ canvas:hover {
     padding: 20px 40px;
     text-align: left;
 }
+
+.confirmed {
+    height: 100px;
+    background: url('../img/confirmed.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.recovered {
+    height: 100px;
+    background: url('../img/recovered.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.deaths {
+    height: 100px;
+    background: url('../img/deaths.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.total {
+    height: 100px;
+    background: url('../img/virusTotal.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}

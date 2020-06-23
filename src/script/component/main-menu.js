@@ -23,19 +23,19 @@ class MainMenu extends HTMLElement {
                             <span class="header-menu">Detail Covid Effects in <span id="countryDetail"></span></span>
                             <div class="sub mt-4 row">
                                 <div class="col-md-3 header-detail mb-3 green" align="center">
-                                    <div class="mb-3"><img src="/src/assets/img/recovered.png" alt="Recovered" width="100px"></div>
+                                    <div class="mb-3 recovered"></div>
                                     <span id="detailRec" class="mt-1"></span><br>Recovered
                                 </div>
                                 <div class="col-md-3 header-detail mb-3 orange" align="center">
-                                    <div class="mb-3"><img src="/src/assets/img/confirmed.png" alt="Confirmed" width="100px"></div>
+                                    <div class="mb-3 confirmed"></div>
                                     <span id="detailCon"></span><br>Confirmed
                                 </div>
                                 <div class="col-md-3 header-detail mb-3 red" align="center">
-                                    <div class="mb-3"><img src="/src/assets/img/deaths.png" alt="Deaths" width="100px"></div>
+                                    <div class="mb-3 deaths"></div>
                                     <span id="detailDea"></span><br>Deaths
                                 </div>
                                 <div class="col-md-3 header-detail mb-3" align="center">
-                                    <div class="mb-3"><img src="/src/assets/img/virusTotal.png" alt="Total Effect" width="100px"></div>
+                                    <div class="mb-3 total"></div>
                                     <span id="detailTot" class="mt-1"></span><br>Total Cases
                                 </div>
                             </div>
