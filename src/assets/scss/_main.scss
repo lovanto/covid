@@ -1,3 +1,6 @@
+*{
+}
+
 html {
     font-size: inherit;
     font-weight: inherit;
@@ -8,56 +11,61 @@ html {
     box-sizing: border-box;
 }
 
-body{
+body {
     font-family: SFProDisplay-Regular;
-    background: url('../img/maps.svg'); 
+    background: url('../img/maps.svg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
-canvas:hover{
+canvas:hover {
     pointer-events: none;
 }
 
-.navi{
+.navi {
     padding-left: 100px;
     background-color: $trans-black;
     color: $white;
 }
 
-#sources{
+#sources {
     margin-inline-end: -94px;
 }
 
-.background{
+.background {
     background: rgba(255, 255, 255, 0.5);
 }
 
-.main-menu{
+.main-menu {
     margin-left: 2%;
     padding: 2%;
     text-align: center;
 }
 
-.side-menu{
+.side-menu {
     padding: 2%;
 
     border-radius: 0 0 0 10px;
     padding-top: 30px;
 }
 
-.footer{
+.footer {
     text-align: center;
     color: $white;
     background-color: $trans-black;
 }
 
-.row{
+.row {
     margin-right: 0px;
 }
 
 .filter-white {
     -webkit-filter: brightness(0) invert(1);
     filter: brightness(0) invert(1);
-  }
+}
+
+.detail{
+    padding: 20px 40px;
+    text-align: left;
+}
