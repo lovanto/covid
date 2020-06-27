@@ -13,16 +13,28 @@
     </nav>
 
     <main class="background">
-        <div class="row" id="main-menu">
-            <article class="main-menu col-md-8">
-                <span name="date" id="date" value="awd" style="display: none;"></span>
-                <main-menu></main-menu>
-                <div style="position: absolute; height: 500px; width: 90%; background-color: transparent; top: 260px;" id="blocker"></div>
-            </article>
+        <div id="menu" class="menu" align="center">
+            <div class="row btn-menu">
+                <div id="btnIndo" class="btn col-md-6 p-3 active" onclick="showIndoPage()">Indonesia</div>
+                <div id="btnGlobal" class="btn col-md-6 p-3" onclick="showGlobalPage()">Global</div>
+            </div>
+        </div>
+        <div id="indoShowcase">
+            Indonesia
+        </div>
+        <div id="globalShowcase">
+            <div class="row" id="main-menu">
+                <article class="main-menu col-md-8">
+                    <span name="date" id="date" value="awd" style="display: none;"></span>
+                    <main-menu></main-menu>
+                    <div style="position: absolute; height: 500px; width: 90%; background-color: transparent; top: 260px;"
+                        id="blocker"></div>
+                </article>
 
-            <aside class="side-menu col" id="side-menu">
-                <side-menu></side-menu>
-            </aside>
+                <aside class="side-menu col" id="side-menu">
+                    <side-menu></side-menu>
+                </aside>
+            </div>
         </div>
     </main>
 
@@ -31,4 +43,5 @@
                 target="_blank">Lovanto</a></div>
     </footer>
 </body>
+
 </html>

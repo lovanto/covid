@@ -98,3 +98,26 @@ canvas:hover {
     background-position: center;
     background-repeat: no-repeat;
 }
+
+.btn{
+    cursor: pointer;
+    transition: 300ms;
+}
+
+.btn:hover{
+    text-decoration: underline;
+    transition: 300ms;
+}
+
+.active{
+    background-color: $trans-black;
+    color: $white;
+}
+
+#menu{
+    border-bottom: solid 1px $trans-black;
+}
+
+.borRight{
+    border-right: solid 1px $trans-black;
+}
