@@ -38,16 +38,6 @@ class SideMenu extends HTMLElement {
                         </div>
                     </div>
                 </div>
-
-                <div class="card text-white bg-dark mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title">Total Cases</h5>
-                        <div class="row">
-                            <div class="col-md-8" style="font-size: 30px;"><span id="total"></span><p class="sub-script">(+ <span id="pTotal"></span>%)</p></div>
-                            <div class="col-md-4">+ <span id="percentTotal"></span> from yesterday</div>
-                        </div>
-                    </div>
-                </div>
             </div>
         `;
     }

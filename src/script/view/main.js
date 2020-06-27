@@ -36,10 +36,14 @@ const main = () => {
 
     searchElement.clickEvent = onButtonSearchClicked;
 
+    // DATA GLOBAL
     DataSource.dataGlobal();
     DataSource.dataSummary(yesterday);
     DataSource.specificCountry('Indonesia'); //default data selected
     document.getElementById('date').innerHTML = today;
+
+    // DATA INDONESIA
+    DataSource.dataIndonesia();
 };
 
 export default main;

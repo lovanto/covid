@@ -18,7 +18,7 @@ class DataSource {
                 document.getElementById('confirmed').innerHTML = new Intl.NumberFormat('ja-JP').format(globConfirmed);
                 document.getElementById('recovered').innerHTML = new Intl.NumberFormat('ja-JP').format(globRecovered);
                 document.getElementById('deaths').innerHTML = new Intl.NumberFormat('ja-JP').format(globDeaths);
-                document.getElementById('total').innerHTML = new Intl.NumberFormat('ja-JP').format(globConfirmed+globRecovered+globDeaths);
+                document.getElementById('total').innerHTML = new Intl.NumberFormat('ja-JP').format(globConfirmed + globRecovered + globDeaths);
             })
             .catch(error => console.log(error));
     }
@@ -50,11 +50,10 @@ class DataSource {
                 document.getElementById('pConfirmed').innerHTML = new Intl.NumberFormat('ja-JP').format(pConfirmed);
                 document.getElementById('pRecovered').innerHTML = new Intl.NumberFormat('ja-JP').format(pRecovered);
                 document.getElementById('pDeaths').innerHTML = new Intl.NumberFormat('ja-JP').format(pDeaths);
-                document.getElementById('pTotal').innerHTML = new Intl.NumberFormat('ja-JP').format(pConfirmed+pRecovered+pDeaths);
                 document.getElementById('percentConfirmed').innerHTML = new Intl.NumberFormat('ja-JP').format(confirmed);
                 document.getElementById('percentRecovered').innerHTML = new Intl.NumberFormat('ja-JP').format(recovered);
                 document.getElementById('percentDeaths').innerHTML = new Intl.NumberFormat('ja-JP').format(deaths);
-                document.getElementById('percentTotal').innerHTML = new Intl.NumberFormat('ja-JP').format(confirmed+recovered+deaths);
+                document.getElementById('percentTotal').innerHTML = new Intl.NumberFormat('ja-JP').format(confirmed + recovered + deaths);
             })
             .catch(error => console.log(error));
     }
@@ -74,7 +73,6 @@ class DataSource {
                 document.getElementById('detailRec').innerHTML = new Intl.NumberFormat('ja-JP').format(recovered);
                 document.getElementById('detailCon').innerHTML = new Intl.NumberFormat('ja-JP').format(confirmed);
                 document.getElementById('detailDea').innerHTML = new Intl.NumberFormat('ja-JP').format(deaths);
-                document.getElementById('detailTot').innerHTML = new Intl.NumberFormat('ja-JP').format(recovered+confirmed+deaths);
 
                 const ctx = document.getElementById('myChart').getContext('2d');
                 const myChart = new Chart(ctx, {
@@ -111,9 +109,28 @@ class DataSource {
                     }
                 });
                 myChart.update({
-                    duration: 3000,
+                    duration: 1000,
                     easing: 'easeOutBounce'
                 });
+            })
+            .catch(error => console.log(error));
+    }
+
+    static dataIndonesia() {
+        fetch(`https://indonesia-covid-19-api.now.sh/api`)
+            .then(response => response.json())
+            .then(responseJson => {
+                console.log(responseJson);
+
+                let meninggal = responseJson.meninggal;
+                let sembuh = responseJson.sembuh;
+                let perawatan = responseJson.perawatan;
+                let jumlah = responseJson.jumlahKasus;
+
+                document.getElementById('indoCon').innerHTML = new Intl.NumberFormat('ja-JP').format(perawatan);
+                document.getElementById('indoRec').innerHTML = new Intl.NumberFormat('ja-JP').format(sembuh);
+                document.getElementById('indoDea').innerHTML = new Intl.NumberFormat('ja-JP').format(meninggal);
+                document.getElementById('indoTot').innerHTML = new Intl.NumberFormat('ja-JP').format(jumlah);
             })
             .catch(error => console.log(error));
     }

@@ -34,6 +34,10 @@ canvas:hover {
     background: rgba(255, 255, 255, 0.5);
 }
 
+.center{
+    text-align: center;
+}
+
 .main-menu {
     margin-left: 2%;
     padding: 2%;
@@ -62,7 +66,7 @@ canvas:hover {
     filter: brightness(0) invert(1);
 }
 
-.detail{
+.detail {
     padding: 20px 40px;
     text-align: left;
 }
@@ -99,25 +103,33 @@ canvas:hover {
     background-repeat: no-repeat;
 }
 
-.btn{
+.btn {
     cursor: pointer;
     transition: 300ms;
 }
 
-.btn:hover{
+.btn:hover {
     text-decoration: underline;
     transition: 300ms;
 }
 
-.active{
+.active {
     background-color: $trans-black;
     color: $white;
 }
 
-#menu{
+#menu {
     border-bottom: solid 1px $trans-black;
 }
 
-.borRight{
+#blocker {
+    position: absolute;
+    height: 500px;
+    width: 90%;
+    background-color: transparent;
+    top: 260px;
+}
+
+.borRight {
     border-right: solid 1px $trans-black;
 }
