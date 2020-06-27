@@ -1,6 +1,20 @@
 import 'bootstrap';
 import 'chart.js';
-import "regenerator-runtime";
+import 'regenerator-runtime';
+
+import 'datatables.net-bs4';
+import 'datatables.net-autofill-bs4';
+import 'datatables.net-buttons-bs4';
+import 'datatables.net-colreorder-bs4';
+import 'datatables.net-fixedcolumns-bs4';
+import 'datatables.net-fixedheader-bs4';
+import 'datatables.net-keytable-bs4';
+import 'datatables.net-rowgroup-bs4';
+import 'datatables.net-rowreorder-bs4';
+import 'datatables.net-responsive-bs4';
+import 'datatables.net-scroller-bs4';
+import 'datatables.net-searchpanes-bs4';
+import 'datatables.net-select-bs4';
 
 import "./assets/font/Nexa.woff";
 import "./assets/font/SFProDisplay-Regular.woff";
