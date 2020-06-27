@@ -109,13 +109,14 @@ class DataSource {
                     }
                 });
                 myChart.update({
-                    duration: 1000,
+                    duration: 1500,
                     easing: 'easeOutBounce'
                 });
             })
             .catch(error => console.log(error));
     }
 
+    // DATA OF INDONESIA
     static dataIndonesia() {
         fetch(`https://indonesia-covid-19-api.now.sh/api`)
             .then(response => response.json())
@@ -131,6 +132,64 @@ class DataSource {
                 document.getElementById('indoRec').innerHTML = new Intl.NumberFormat('ja-JP').format(sembuh);
                 document.getElementById('indoDea').innerHTML = new Intl.NumberFormat('ja-JP').format(meninggal);
                 document.getElementById('indoTot').innerHTML = new Intl.NumberFormat('ja-JP').format(jumlah);
+            })
+            .catch(error => console.log(error));
+    }
+
+    static dataProvince() {
+        return fetch(`https://indonesia-covid-19.mathdro.id/api/provinsi`)
+            .then(response => response.json())
+            .then(responseJson => {
+                console.log(responseJson);
+
+                const dateInput = document.getElementById('date').innerHTML;
+                const recovered = responseJson.recovered.value;
+                const confirmed = responseJson.confirmed.value;
+                const deaths = responseJson.deaths.value;
+
+                document.getElementById('countryDetail').innerHTML = country;
+                document.getElementById('detailRec').innerHTML = new Intl.NumberFormat('ja-JP').format(recovered);
+                document.getElementById('detailCon').innerHTML = new Intl.NumberFormat('ja-JP').format(confirmed);
+                document.getElementById('detailDea').innerHTML = new Intl.NumberFormat('ja-JP').format(deaths);
+
+                const ctx = document.getElementById('myChart').getContext('2d');
+                const myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: [dateInput],
+                        datasets: [{
+                            label: "Recovered",
+                            backgroundColor: "#28a745",
+                            data: [recovered]
+                        }, {
+                            label: "Confirmed",
+                            backgroundColor: "#ffc107",
+                            data: [confirmed]
+                        }, {
+                            label: "Deaths",
+                            backgroundColor: "#dc3545",
+                            data: [deaths]
+                        }]
+                    },
+                    options: {
+                        showTooltips: false,
+                        tooltips: {
+                            enabled: false
+                        },
+                        hover: {
+                            mode: null
+                        },
+                        title: {
+                            display: true,
+                            fontSize: 15,
+                            text: `Data Covid-19 in ${country} Today`
+                        }
+                    }
+                });
+                myChart.update({
+                    duration: 1500,
+                    easing: 'easeOutBounce'
+                });
             })
             .catch(error => console.log(error));
     }

@@ -44,6 +44,7 @@ const main = () => {
 
     // DATA INDONESIA
     DataSource.dataIndonesia();
+    DataSource.dataProvince();
 };
 
 export default main;

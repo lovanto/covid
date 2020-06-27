@@ -12,7 +12,9 @@ import "./assets/img/virusTotal.png";
 
 import "./script/component/header-navigation.js"
 import "./script/component/main-menu.js"
+import "./script/component/main-menu-indo.js"
 import "./script/component/side-menu.js"
+import "./script/component/side-menu-indo.js"
 import "./script/component/select-country.js"
 import "./viewPager.js"
 

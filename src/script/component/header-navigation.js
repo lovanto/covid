@@ -8,7 +8,7 @@ class HeaderNavigation extends HTMLElement {
 
         this.innerHTML = `
         <div class="row navi">
-            <div class="p-4 pt-5" id="container-icon">
+            <div class="p-4" id="container-icon">
                 <svg class="rotating filter-white" id="virus-icon" x="0px" y="0px" width="100" viewBox="0 0 28.4 28.4"
                     xml:space="preserve" class="sc-AxgMl iRruVi app-logo">
                     <g>
@@ -25,9 +25,6 @@ class HeaderNavigation extends HTMLElement {
                 <div id="title">
                     <div class="header" style="margin-top: 10px;">Coronavirus (COVID-19) Outbreak</div>
                     <div class="row">
-                        <p class="col-sm-9" id="sources"> Data source from <a href="https://github.com/mathdroid/covid-19-api"
-                                target="_blank"> mathdroid-global </a> API and <a href="https://github.com/mathdroid/indonesia-covid-19-api"
-                                target="_blank"> mathdroid-indo </a> API.</p>
                         <p class="col-sm-8">Latest Update <span id="lastUpdate"></span></p>
                     </div>
                 </div>
