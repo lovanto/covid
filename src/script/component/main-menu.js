@@ -6,8 +6,9 @@ class MainMenu extends HTMLElement {
 
     render() {
         this.innerHTML = `
+        <span name="date" id="date" value="awd" style="display: none;"></span>
         <div id="right-area">
-                <div class="header mb-3">Search for Country's Data Update</div>
+                <div class="header mb-3" align="center">Search for Country's Data Update</div>
 
                 <select-country></select-country>
 
@@ -39,6 +40,7 @@ class MainMenu extends HTMLElement {
                     </div>
                 </div>
             </div>
+            <div id="blocker"></div>
         `;
     }
 

@@ -119,6 +119,11 @@ canvas:hover {
 
 #menu {
     border-bottom: solid 1px $trans-black;
+    background-color: $white;
+}
+
+.btn-sub-menu{
+    margin-inline-start: 0px !important;
 }
 
 #blocker {
@@ -147,3 +152,7 @@ table.dataTable thead .sorting_desc_disabled:before {
 }
 
 .dataTables_filter input { width: 350px;}
+
+.card{
+    border-radius: 0px 0px 10px 10px !important;
+}

@@ -14,7 +14,7 @@
 
     <main class="background">
         <div id="menu" class="menu" align="center">
-            <div class="row btn-menu">
+            <div class="row">
                 <div id="btnIndo" class="btn col-md-6 p-3 active" onclick="showIndoPage()">
                     <div>Indonesia</div>
                 </div>
@@ -24,31 +24,33 @@
             </div>
         </div>
         <div id="indoShowcase" class="pb-5">
-            <div class="row">
-                <article class="main-menu col-md-8">
-                    <span name="date" id="date" value="awd" style="display: none;"></span>
-                    <!-- <main-menu-indo></main-menu-indo> -->
-                    <div id="right-area">
-                        <div class="card bg-light mb-3">
-                            <div class="card-body" id="conChart">
-                                <div class="header mb-3" align="center">Province Data</div>
-                                <div id="dataProvince"></div>
-                            </div>
+            <article id="dataIndo" class="main-menu col-md-11" style="padding-right: 0px !important; margin-left: 3%;">
+                <div id="menu" class="menu" align="center">
+                    <div class="row btn-menu btn-sub-menu">
+                        <div id="btnProvince" class="btn col-md-3 p-3 active" onclick="showProvince()">
+                            <div>Province Data</div>
+                        </div>
+                        <div id="btnDaily" class="btn col-md-3 p-3" onclick="showDaily()">
+                            <div>Daily Report</div>
+                        </div>
+                        <div id="btnWeekly" class="btn col-md-3 p-3" onclick="showWeekly()">
+                            <div>Weekly Report</div>
+                        </div>
+                        <div id="btnMonthly" class="btn col-md-3 p-3" onclick="showMonthly()">
+                            <div>Monthly Report</div>
                         </div>
                     </div>
-                </article>
-
-                <aside class="side-menu col" id="side-menu">
-                    <side-menu-indo></side-menu-indo>
-                </aside>
-            </div>
+                </div>
+                <main-menu-province id="menu-province"></main-menu-province>
+                <main-menu-daily id="menu-daily"></main-menu-daily>
+                <main-menu-weekly id="menu-weekly"></main-menu-weekly>
+                <main-menu-monthly id="menu-monthly"></main-menu-monthly>
+            </article>
         </div>
         <div id="globalShowcase">
             <div class="row">
-                <article class="main-menu col-md-8">
-                    <span name="date" id="date" value="awd" style="display: none;"></span>
+                <article id="dataGlobal" class="main-menu col-md-8">
                     <main-menu></main-menu>
-                    <div id="blocker"></div>
                 </article>
 
                 <aside class="side-menu col" id="side-menu">

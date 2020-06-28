@@ -1,4 +1,4 @@
-class MainMenuIndo extends HTMLElement {
+class MainMenuMonthly extends HTMLElement {
 
     connectedCallback() {
         this.render();
@@ -6,7 +6,11 @@ class MainMenuIndo extends HTMLElement {
 
     render() {
         this.innerHTML = `
-        
+        <div class="card bg-light mb-3">
+            <div class="card-body">
+                <canvas id="30DaysChart"></canvas>
+            </div>
+        </div>
         `;
     }
 
@@ -28,4 +32,4 @@ class MainMenuIndo extends HTMLElement {
     }
 }
 
-customElements.define("main-menu-indo", MainMenuIndo);
+customElements.define("main-menu-monthly", MainMenuMonthly);

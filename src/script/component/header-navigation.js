@@ -25,7 +25,7 @@ class HeaderNavigation extends HTMLElement {
                 <div id="title">
                     <div class="header" style="margin-top: 10px;">Coronavirus (COVID-19) Outbreak</div>
                     <div class="row">
-                        <p class="col-sm-8">Latest Update <span id="lastUpdate"></span></p>
+                        <p class="col-sm-8 blue">Latest Update <span id="lastUpdate"></span></p>
                     </div>
                 </div>
                 <div data-v-ea1dc9d2="" class="spacer"></div>
