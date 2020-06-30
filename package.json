@@ -39,6 +39,7 @@
   "dependencies": {
     "bootstrap": "^4.5.0",
     "chart.js": "^2.9.3",
+    "datatables.net-responsive-bs4": "^2.2.5",
     "file-loader": "^6.0.0",
     "font-awesome": "^4.7.0",
     "image-webpack-loader": "^6.0.0",

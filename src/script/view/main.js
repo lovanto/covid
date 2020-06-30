@@ -43,7 +43,8 @@ const main = () => {
     document.getElementById('date').innerHTML = today;
 
     // DATA INDONESIA
-    DataSource.dataIndonesia();
+    DataSource.dataProvince();
+    DataSource.dataIndoPer();
 };
 
 export default main;

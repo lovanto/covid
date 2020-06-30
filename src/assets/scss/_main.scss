@@ -34,14 +34,13 @@ canvas:hover {
     background: rgba(255, 255, 255, 0.5);
 }
 
-.center{
+.center {
     text-align: center;
 }
 
 .main-menu {
     margin-left: 2%;
     padding: 2%;
-    text-align: center;
 }
 
 .side-menu {
@@ -120,6 +119,11 @@ canvas:hover {
 
 #menu {
     border-bottom: solid 1px $trans-black;
+    background-color: $white;
+}
+
+.btn-sub-menu{
+    margin-inline-start: 0px !important;
 }
 
 #blocker {
@@ -132,4 +136,23 @@ canvas:hover {
 
 .borRight {
     border-right: solid 1px $trans-black;
+}
+
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_asc_disabled:before,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_desc:before,
+table.dataTable thead .sorting_desc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:before {
+    bottom: .5em;
+}
+
+.dataTables_filter input { width: 350px;}
+
+.card{
+    border-radius: 0px 0px 10px 10px !important;
 }
