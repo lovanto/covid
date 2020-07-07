@@ -156,6 +156,8 @@ table.dataTable thead .sorting_desc_disabled:before {
 }
 
 th:nth-child(1) {
+    background:hsl(210,10,22);
+    color: $white;
     width: 40%;
 }
 

@@ -253,10 +253,29 @@ class DataSource {
                 deaths = [];
                 incare = [];
 
-                for (let i = 0; i <= 7; i++) {
-                    if (i !== 7) {
-                        day[i] = i;
+                function formatDate(date) {
+                    var dd = date.getDate();
+                    var mm = date.getMonth() + 1;
+                    var yyyy = date.getFullYear();
+                    if (dd < 10) {
+                        dd = '0' + dd
                     }
+                    if (mm < 10) {
+                        mm = '0' + mm
+                    }
+                    date = mm + '/' + dd + '/' + yyyy;
+                    return date
+                }
+
+                let j = 6;
+                for (var i = 0; i < 7; i++) {
+                    var d = new Date();
+                    d.setDate(d.getDate() - j);
+                    day[i] = (formatDate(d));
+                    j--;
+                }
+
+                for (let i = 0; i <= 7; i++) {
                     recovered[i] = responseJson.data[totalData7].jumlahPasienSembuh;
                     confirmed[i] = responseJson.data[totalData7].jumlahKasusKumulatif;
                     deaths[i] = responseJson.data[totalData7].jumlahPasienMeninggal;
@@ -409,11 +428,16 @@ class DataSource {
                 confirmed = [];
                 deaths = [];
                 incare = [];
+                
+                j = 30;
+                for (var i = 0; i <= 30; i++) {
+                    var d = new Date();
+                    d.setDate(d.getDate() - j);
+                    day[i] = (formatDate(d));
+                    j--;
+                }
 
                 for (let i = 0; i <= 30; i++) {
-                    if (i !== 30) {
-                        day[i] = i;
-                    }
                     recovered[i] = responseJson.data[totalData30].jumlahPasienSembuh;
                     confirmed[i] = responseJson.data[totalData30].jumlahKasusKumulatif;
                     deaths[i] = responseJson.data[totalData30].jumlahPasienMeninggal;
