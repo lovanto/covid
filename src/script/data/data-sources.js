@@ -195,10 +195,6 @@ class DataSource {
                 let confirmed = [];
                 let deaths = [];
                 let incare = [];
-                let detailRecovered = [];
-                let detailConfirmed = [];
-                let detailDeaths = [];
-                let detailInCare = [];
                 let totalData = responseJson.data.length - 2;
                 let totalData7 = responseJson.data.length - 9;
                 let totalData30 = responseJson.data.length - 32;
@@ -253,41 +249,18 @@ class DataSource {
                 deaths = [];
                 incare = [];
 
-                function formatDate(date) {
-                    var dd = date.getDate();
-                    var mm = date.getMonth() + 1;
-                    var yyyy = date.getFullYear();
-                    if (dd < 10) {
-                        dd = '0' + dd
-                    }
-                    if (mm < 10) {
-                        mm = '0' + mm
-                    }
-                    date = mm + '/' + dd + '/' + yyyy;
-                    return date
-                }
-
-                let j = 6;
-                for (var i = 0; i < 7; i++) {
-                    var d = new Date();
-                    d.setDate(d.getDate() - j);
-                    day[i] = (formatDate(d));
-                    j--;
-                }
-
                 for (let i = 0; i <= 7; i++) {
-                    recovered[i] = responseJson.data[totalData7].jumlahPasienSembuh;
-                    confirmed[i] = responseJson.data[totalData7].jumlahKasusKumulatif;
-                    deaths[i] = responseJson.data[totalData7].jumlahPasienMeninggal;
-                    incare[i] = responseJson.data[totalData7].jumlahpasiendalamperawatan;
-                    totalData7++;
-                }
-
-                for (let i = 0; i < 7; i++) {
-                    detailRecovered[i] = Number(recovered[i + 1] - recovered[i]);
-                    detailConfirmed[i] = Number(confirmed[i + 1] - confirmed[i]);
-                    detailDeaths[i] = Number(deaths[i + 1] - deaths[i]);
-                    detailInCare[i] = Number(incare[i + 1] - incare[i]);
+                    let date = new Date(Number(responseJson.data[totalData7].tanggal));
+                    let dd = String(date.getDate()).padStart(2, '0');
+                    let mm = String(date.getMonth() + 1).padStart(2, '0');
+                    let yyyy = date.getFullYear();
+                    date = dd + '-' + mm + '-' + yyyy;
+                    day[i] = date;
+                    
+                    recovered[i] = responseJson.data[totalData7].jumlahKasusSembuhperHari;
+                    confirmed[i] = responseJson.data[totalData7].jumlahKasusBaruperHari;
+                    deaths[i] = responseJson.data[totalData7].jumlahKasusMeninggalperHari;
+                    incare[i] = responseJson.data[totalData7].jumlahKasusDirawatperHari;
                     totalData7++;
                 }
 
@@ -299,10 +272,9 @@ class DataSource {
                         datasets: [{
                             label: "Recovered",
                             borderColor: "#28a745",
-                            data: detailRecovered,
+                            data: recovered,
                             fill: false,
-                            lineTension: 0,
-                            radius: 5
+                            lineTension: 0
                         }]
                     },
                     options: {
@@ -332,10 +304,9 @@ class DataSource {
                         datasets: [{
                             label: "Confirmed",
                             borderColor: "#ffc107",
-                            data: detailConfirmed,
+                            data: confirmed,
                             fill: false,
-                            lineTension: 0,
-                            radius: 5
+                            lineTension: 0
                         }]
                     },
                     options: {
@@ -365,10 +336,9 @@ class DataSource {
                         datasets: [{
                             label: "Deaths",
                             borderColor: "#dc3545",
-                            data: detailDeaths,
+                            data: deaths,
                             fill: false,
-                            lineTension: 0,
-                            radius: 5
+                            lineTension: 0
                         }]
                     },
                     options: {
@@ -398,10 +368,9 @@ class DataSource {
                         datasets: [{
                             label: "In Care",
                             borderColor: "#0067bf",
-                            data: detailInCare,
+                            data: incare,
                             fill: false,
-                            lineTension: 0,
-                            radius: 5
+                            lineTension: 0
                         }]
                     },
                     options: {
@@ -422,37 +391,27 @@ class DataSource {
                         }
                     }
                 });
-
+                
                 day = [];
                 recovered = [];
                 confirmed = [];
                 deaths = [];
                 incare = [];
-                
-                j = 30;
-                for (var i = 0; i <= 30; i++) {
-                    var d = new Date();
-                    d.setDate(d.getDate() - j);
-                    day[i] = (formatDate(d));
-                    j--;
-                }
 
                 for (let i = 0; i <= 30; i++) {
-                    recovered[i] = responseJson.data[totalData30].jumlahPasienSembuh;
-                    confirmed[i] = responseJson.data[totalData30].jumlahKasusKumulatif;
-                    deaths[i] = responseJson.data[totalData30].jumlahPasienMeninggal;
-                    incare[i] = responseJson.data[totalData30].jumlahpasiendalamperawatan;
+                    let date = new Date(Number(responseJson.data[totalData30].tanggal));
+                    let dd = String(date.getDate()).padStart(2, '0');
+                    let mm = String(date.getMonth() + 1).padStart(2, '0');
+                    let yyyy = date.getFullYear();
+                    date = dd + '-' + mm + '-' + yyyy;
+                    day[i] = date;
+                    
+                    recovered[i] = responseJson.data[totalData30].jumlahKasusSembuhperHari;
+                    confirmed[i] = responseJson.data[totalData30].jumlahKasusBaruperHari;
+                    deaths[i] = responseJson.data[totalData30].jumlahKasusMeninggalperHari;
+                    incare[i] = responseJson.data[totalData30].jumlahKasusDirawatperHari;
                     totalData30++;
                 }
-
-                for (let i = 0; i < 30; i++) {
-                    detailRecovered[i] = Number(recovered[i + 1] - recovered[i]);
-                    detailConfirmed[i] = Number(confirmed[i + 1] - confirmed[i]);
-                    detailDeaths[i] = Number(deaths[i + 1] - deaths[i]);
-                    detailInCare[i] = Number(incare[i + 1] - incare[i]);
-                    totalData7++;
-                }
-
                 let ctx30Rec = document.getElementById('30DaysChartRecovered').getContext('2d');
                 new Chart(ctx30Rec, {
                     type: 'line',
@@ -461,10 +420,9 @@ class DataSource {
                         datasets: [{
                             label: "Recovered",
                             borderColor: "#28a745",
-                            data: detailRecovered,
+                            data: recovered,
                             fill: false,
-                            lineTension: 0,
-                            radius: 5
+                            lineTension: 0
                         }]
                     },
                     options: {
@@ -494,10 +452,9 @@ class DataSource {
                         datasets: [{
                             label: "Confirmed",
                             borderColor: "#ffc107",
-                            data: detailConfirmed,
+                            data: confirmed,
                             fill: false,
-                            lineTension: 0,
-                            radius: 5
+                            lineTension: 0
                         }]
                     },
                     options: {
@@ -527,10 +484,9 @@ class DataSource {
                         datasets: [{
                             label: "Deaths",
                             borderColor: "#dc3545",
-                            data: detailDeaths,
+                            data: deaths,
                             fill: false,
-                            lineTension: 0,
-                            radius: 5
+                            lineTension: 0
                         }]
                     },
                     options: {
@@ -560,10 +516,9 @@ class DataSource {
                         datasets: [{
                             label: "In Care",
                             borderColor: "#0067bf",
-                            data: detailInCare,
+                            data: incare,
                             fill: false,
-                            lineTension: 0,
-                            radius: 5
+                            lineTension: 0
                         }]
                     },
                     options: {
