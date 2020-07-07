@@ -205,6 +205,26 @@ class DataSource {
                 deaths[0] = responseJson.data[totalData].jumlahPasienMeninggal;
                 incare[0] = responseJson.data[totalData].jumlahpasiendalamperawatan;
 
+                recovered[1] = responseJson.data[totalData-1].jumlahPasienSembuh;
+                confirmed[1] = responseJson.data[totalData-1].jumlahKasusKumulatif;
+                deaths[1] = responseJson.data[totalData-1].jumlahPasienMeninggal;
+                incare[1] = responseJson.data[totalData-1].jumlahpasiendalamperawatan;
+
+                const todayRecovered = Number(recovered[0] - recovered[1]);
+                const todayConfirmed = Number(confirmed[0] - confirmed[1]);
+                const todayDeaths = Number(deaths[0] - deaths[1]);
+                const todayInCare = Number(incare[0] - incare[1]);
+
+                document.getElementById('recoveredTotal').innerHTML = new Intl.NumberFormat('ja-JP').format(recovered[0])
+                document.getElementById('confirmedTotal').innerHTML = new Intl.NumberFormat('ja-JP').format(confirmed[0])
+                document.getElementById('deathsTotal').innerHTML = new Intl.NumberFormat('ja-JP').format(deaths[0])
+                document.getElementById('incCareTotal').innerHTML = new Intl.NumberFormat('ja-JP').format(incare[0])
+                
+                document.getElementById('recoveredDetail').innerHTML = new Intl.NumberFormat('ja-JP').format(todayRecovered)
+                document.getElementById('confirmedDetail').innerHTML = new Intl.NumberFormat('ja-JP').format(todayConfirmed)
+                document.getElementById('deathsDetail').innerHTML = new Intl.NumberFormat('ja-JP').format(todayDeaths)
+                document.getElementById('incCareDetail').innerHTML = new Intl.NumberFormat('ja-JP').format(todayInCare)
+
                 let ctx1 = document.getElementById('1DaysChart').getContext('2d');
                 let myChart1 = new Chart(ctx1, {
                     type: 'pie',
@@ -212,7 +232,7 @@ class DataSource {
                         labels: ["Recovered", "Confirmed", "Deaths", "In Care"],
                         datasets: [{
                             backgroundColor: ["#28a745", "#ffc107", "#dc3545", "#0067bf"],
-                            data: [recovered, confirmed, deaths, incare]
+                            data: [todayRecovered, todayConfirmed, todayDeaths, todayInCare]
                         }]
                     },
                     options: {

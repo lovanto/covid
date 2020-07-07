@@ -13,22 +13,62 @@
     </nav>
 
     <main class="background">
-        <div class="row" id="main-menu">
-            <article class="main-menu col-md-8">
-                <span name="date" id="date" value="awd" style="display: none;"></span>
-                <main-menu></main-menu>
-                <div style="position: absolute; height: 500px; width: 90%; background-color: transparent; top: 260px;" id="blocker"></div>
+        <div id="menu" class="menu" align="center">
+            <div class="row">
+                <div id="btnIndo" class="btn col-md-6 p-3 active" onclick="showIndoPage()">
+                    <div>Indonesia</div>
+                </div>
+                <div id="btnGlobal" class="btn col-md-6 p-3" onclick="showGlobalPage()">
+                    <div>Global</div>
+                </div>
+            </div>
+        </div>
+        <div id="indoShowcase" class="pb-5">
+            <article id="dataIndo" class="main-menu col-md-11" style="padding-right: 0px !important; margin-left: 3%;">
+                <div id="menu" class="menu" align="center">
+                    <div class="row btn-menu btn-sub-menu">
+                        <div id="btnProvince" class="btn col-md-3 p-3 active" onclick="showProvince()">
+                            <div>Province Data</div>
+                        </div>
+                        <div id="btnDaily" class="btn col-md-3 p-3" onclick="showDaily()">
+                            <div>Daily Report</div>
+                        </div>
+                        <div id="btnWeekly" class="btn col-md-3 p-3" onclick="showWeekly()">
+                            <div>Weekly Report</div>
+                        </div>
+                        <div id="btnMonthly" class="btn col-md-3 p-3" onclick="showMonthly()">
+                            <div>Monthly Report</div>
+                        </div>
+                    </div>
+                </div>
+                <main-menu-province id="menu-province"></main-menu-province>
+                <main-menu-daily id="menu-daily"></main-menu-daily>
+                <main-menu-weekly id="menu-weekly"></main-menu-weekly>
+                <main-menu-monthly id="menu-monthly"></main-menu-monthly>
             </article>
+        </div>
+        <div id="globalShowcase">
+            <div class="row">
+                <article id="dataGlobal" class="main-menu col-md-8">
+                    <main-menu></main-menu>
+                </article>
 
-            <aside class="side-menu col" id="side-menu">
-                <side-menu></side-menu>
-            </aside>
+                <aside class="side-menu col" id="side-menu">
+                    <side-menu></side-menu>
+                </aside>
+            </div>
         </div>
     </main>
 
     <footer>
-        <div class="footer p-3">&copy; 2020 Designed and Developed with ♥ by <a href="https://github.com/lovanto"
-                target="_blank">Lovanto</a></div>
+        <div class="footer p-3">
+            Data source from <a href="https://github.com/mathdroid/covid-19-api" target="_blank"> mathdroid-global </a>
+            and <a href="https://github.com/mathdroid/indonesia-covid-19-api" target="_blank"> mathdroid-indo </a>
+            API. <br>
+            &copy; 2020 Designed and Developed with ♥ by <a href="https://github.com/lovanto"
+                target="_blank">Lovanto</a>
+        </div>
     </footer>
 <script src="bundle.js"></script></body>
+
 </html>

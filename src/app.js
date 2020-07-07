@@ -19,7 +19,6 @@ import "./script/component/main-menu-monthly.js"
 import "./script/component/main-menu-province.js"
 import "./script/component/select-country.js"
 import "./script/component/side-menu.js"
-import "./script/component/side-menu-indo.js"
 import "./viewPager.js"
 
 import main from "./script/view/main.js";
