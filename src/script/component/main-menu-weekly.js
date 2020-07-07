@@ -7,8 +7,11 @@ class MainMenuWeekly extends HTMLElement {
     render() {
         this.innerHTML = `
         <div class="card bg-light mb-3">
-            <div class="card-body">
-                <canvas id="7DaysChart"></canvas>
+            <div class="card-body row">
+                <div class="col-md-6"><canvas id="7DaysChartRecovered"></canvas></div>
+                <div class="col-md-6"><canvas id="7DaysChartConfirmed"></canvas></div>
+                <div class="col-md-6"><canvas id="7DaysChartDeaths"></canvas></div>
+                <div class="col-md-6"><canvas id="7DaysChartInCare"></canvas></div>
             </div>
         </div>
         `;

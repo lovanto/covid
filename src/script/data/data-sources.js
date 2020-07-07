@@ -196,6 +196,10 @@ class DataSource {
                 let confirmed = [];
                 let deaths = [];
                 let incare = [];
+                let detailRecovered = [];
+                let detailConfirmed = [];
+                let detailDeaths = [];
+                let detailInCare = [];
                 let totalData = responseJson.data.length - 2;
                 let totalData7 = responseJson.data.length - 9;
                 let totalData30 = responseJson.data.length - 32;
@@ -205,10 +209,10 @@ class DataSource {
                 deaths[0] = responseJson.data[totalData].jumlahPasienMeninggal;
                 incare[0] = responseJson.data[totalData].jumlahpasiendalamperawatan;
 
-                recovered[1] = responseJson.data[totalData-1].jumlahPasienSembuh;
-                confirmed[1] = responseJson.data[totalData-1].jumlahKasusKumulatif;
-                deaths[1] = responseJson.data[totalData-1].jumlahPasienMeninggal;
-                incare[1] = responseJson.data[totalData-1].jumlahpasiendalamperawatan;
+                recovered[1] = responseJson.data[totalData - 1].jumlahPasienSembuh;
+                confirmed[1] = responseJson.data[totalData - 1].jumlahKasusKumulatif;
+                deaths[1] = responseJson.data[totalData - 1].jumlahPasienMeninggal;
+                incare[1] = responseJson.data[totalData - 1].jumlahpasiendalamperawatan;
 
                 const todayRecovered = Number(recovered[0] - recovered[1]);
                 const todayConfirmed = Number(confirmed[0] - confirmed[1]);
@@ -219,14 +223,14 @@ class DataSource {
                 document.getElementById('confirmedTotal').innerHTML = new Intl.NumberFormat('ja-JP').format(confirmed[0])
                 document.getElementById('deathsTotal').innerHTML = new Intl.NumberFormat('ja-JP').format(deaths[0])
                 document.getElementById('incCareTotal').innerHTML = new Intl.NumberFormat('ja-JP').format(incare[0])
-                
+
                 document.getElementById('recoveredDetail').innerHTML = new Intl.NumberFormat('ja-JP').format(todayRecovered)
                 document.getElementById('confirmedDetail').innerHTML = new Intl.NumberFormat('ja-JP').format(todayConfirmed)
                 document.getElementById('deathsDetail').innerHTML = new Intl.NumberFormat('ja-JP').format(todayDeaths)
                 document.getElementById('incCareDetail').innerHTML = new Intl.NumberFormat('ja-JP').format(todayInCare)
 
                 let ctx1 = document.getElementById('1DaysChart').getContext('2d');
-                let myChart1 = new Chart(ctx1, {
+                new Chart(ctx1, {
                     type: 'pie',
                     data: {
                         labels: ["Recovered", "Confirmed", "Deaths", "In Care"],
@@ -243,10 +247,6 @@ class DataSource {
                         }
                     }
                 });
-                myChart1.update({
-                    duration: 1500,
-                    easing: 'easeOutBounce'
-                });
 
                 day = [];
                 recovered = [];
@@ -255,7 +255,9 @@ class DataSource {
                 incare = [];
 
                 for (let i = 0; i <= 7; i++) {
-                    day[i] = i;
+                    if (i !== 7) {
+                        day[i] = i;
+                    }
                     recovered[i] = responseJson.data[totalData7].jumlahPasienSembuh;
                     confirmed[i] = responseJson.data[totalData7].jumlahKasusKumulatif;
                     deaths[i] = responseJson.data[totalData7].jumlahPasienMeninggal;
@@ -263,27 +265,26 @@ class DataSource {
                     totalData7++;
                 }
 
-                let ctx = document.getElementById('7DaysChart').getContext('2d');
-                let myChart = new Chart(ctx, {
+                for (let i = 0; i < 7; i++) {
+                    detailRecovered[i] = Number(recovered[i + 1] - recovered[i]);
+                    detailConfirmed[i] = Number(confirmed[i + 1] - confirmed[i]);
+                    detailDeaths[i] = Number(deaths[i + 1] - deaths[i]);
+                    detailInCare[i] = Number(incare[i + 1] - incare[i]);
+                    totalData7++;
+                }
+
+                let ctxRec = document.getElementById('7DaysChartRecovered').getContext('2d');
+                new Chart(ctxRec, {
                     type: 'line',
                     data: {
                         labels: day,
                         datasets: [{
                             label: "Recovered",
                             borderColor: "#28a745",
-                            data: recovered
-                        }, {
-                            label: "Confirmed",
-                            borderColor: "#ffc107",
-                            data: confirmed
-                        }, {
-                            label: "Deaths",
-                            borderColor: "#dc3545",
-                            data: deaths
-                        }, {
-                            label: "In Care",
-                            borderColor: "#0067bf",
-                            data: incare
+                            data: detailRecovered,
+                            fill: false,
+                            lineTension: 0,
+                            radius: 5
                         }]
                     },
                     options: {
@@ -300,15 +301,108 @@ class DataSource {
                             }]
                         },
                         title: {
-                            display: true,
-                            fontSize: 15,
-                            text: `Last 7 Days Data from Covid-19`
+                            display: false
                         }
                     }
                 });
-                myChart.update({
-                    duration: 1500,
-                    easing: 'easeOutBounce'
+
+                let ctxCon = document.getElementById('7DaysChartConfirmed').getContext('2d');
+                new Chart(ctxCon, {
+                    type: 'line',
+                    data: {
+                        labels: day,
+                        datasets: [{
+                            label: "Confirmed",
+                            borderColor: "#ffc107",
+                            data: detailConfirmed,
+                            fill: false,
+                            lineTension: 0,
+                            radius: 5
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            xAxes: [{
+                                gridLines: {
+                                    drawOnChartArea: false
+                                }
+                            }],
+                            yAxes: [{
+                                gridLines: {
+                                    drawOnChartArea: false
+                                }
+                            }]
+                        },
+                        title: {
+                            display: false
+                        }
+                    }
+                });
+
+                let ctxDeaths = document.getElementById('7DaysChartDeaths').getContext('2d');
+                new Chart(ctxDeaths, {
+                    type: 'line',
+                    data: {
+                        labels: day,
+                        datasets: [{
+                            label: "Deaths",
+                            borderColor: "#dc3545",
+                            data: detailDeaths,
+                            fill: false,
+                            lineTension: 0,
+                            radius: 5
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            xAxes: [{
+                                gridLines: {
+                                    drawOnChartArea: false
+                                }
+                            }],
+                            yAxes: [{
+                                gridLines: {
+                                    drawOnChartArea: false
+                                }
+                            }]
+                        },
+                        title: {
+                            display: false
+                        }
+                    }
+                });
+
+                let ctxInCare = document.getElementById('7DaysChartInCare').getContext('2d');
+                new Chart(ctxInCare, {
+                    type: 'line',
+                    data: {
+                        labels: day,
+                        datasets: [{
+                            label: "In Care",
+                            borderColor: "#0067bf",
+                            data: detailInCare,
+                            fill: false,
+                            lineTension: 0,
+                            radius: 5
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            xAxes: [{
+                                gridLines: {
+                                    drawOnChartArea: false
+                                }
+                            }],
+                            yAxes: [{
+                                gridLines: {
+                                    drawOnChartArea: false
+                                }
+                            }]
+                        },
+                        title: {
+                            display: false
+                        }
+                    }
                 });
 
                 day = [];
@@ -318,7 +412,9 @@ class DataSource {
                 incare = [];
 
                 for (let i = 0; i <= 30; i++) {
-                    day[i] = i;
+                    if (i !== 30) {
+                        day[i] = i;
+                    }
                     recovered[i] = responseJson.data[totalData30].jumlahPasienSembuh;
                     confirmed[i] = responseJson.data[totalData30].jumlahKasusKumulatif;
                     deaths[i] = responseJson.data[totalData30].jumlahPasienMeninggal;
@@ -326,27 +422,26 @@ class DataSource {
                     totalData30++;
                 }
 
-                let ctx2 = document.getElementById('30DaysChart').getContext('2d');
-                let myChart2 = new Chart(ctx2, {
+                for (let i = 0; i < 30; i++) {
+                    detailRecovered[i] = Number(recovered[i + 1] - recovered[i]);
+                    detailConfirmed[i] = Number(confirmed[i + 1] - confirmed[i]);
+                    detailDeaths[i] = Number(deaths[i + 1] - deaths[i]);
+                    detailInCare[i] = Number(incare[i + 1] - incare[i]);
+                    totalData7++;
+                }
+
+                let ctx30Rec = document.getElementById('30DaysChartRecovered').getContext('2d');
+                new Chart(ctx30Rec, {
                     type: 'line',
                     data: {
                         labels: day,
                         datasets: [{
                             label: "Recovered",
                             borderColor: "#28a745",
-                            data: recovered
-                        }, {
-                            label: "Confirmed",
-                            borderColor: "#ffc107",
-                            data: confirmed
-                        }, {
-                            label: "Deaths",
-                            borderColor: "#dc3545",
-                            data: deaths
-                        }, {
-                            label: "In Care",
-                            borderColor: "#0067bf",
-                            data: incare
+                            data: detailRecovered,
+                            fill: false,
+                            lineTension: 0,
+                            radius: 5
                         }]
                     },
                     options: {
@@ -363,15 +458,108 @@ class DataSource {
                             }]
                         },
                         title: {
-                            display: true,
-                            fontSize: 15,
-                            text: `Last 30 Days Data from Covid-19`
+                            display: false
                         }
                     }
                 });
-                myChart2.update({
-                    duration: 1500,
-                    easing: 'easeOutBounce'
+
+                let ctx30Con = document.getElementById('30DaysChartConfirmed').getContext('2d');
+                new Chart(ctx30Con, {
+                    type: 'line',
+                    data: {
+                        labels: day,
+                        datasets: [{
+                            label: "Confirmed",
+                            borderColor: "#ffc107",
+                            data: detailConfirmed,
+                            fill: false,
+                            lineTension: 0,
+                            radius: 5
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            xAxes: [{
+                                gridLines: {
+                                    drawOnChartArea: false
+                                }
+                            }],
+                            yAxes: [{
+                                gridLines: {
+                                    drawOnChartArea: false
+                                }
+                            }]
+                        },
+                        title: {
+                            display: false
+                        }
+                    }
+                });
+
+                let ctx30Deaths = document.getElementById('30DaysChartDeaths').getContext('2d');
+                new Chart(ctx30Deaths, {
+                    type: 'line',
+                    data: {
+                        labels: day,
+                        datasets: [{
+                            label: "Deaths",
+                            borderColor: "#dc3545",
+                            data: detailDeaths,
+                            fill: false,
+                            lineTension: 0,
+                            radius: 5
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            xAxes: [{
+                                gridLines: {
+                                    drawOnChartArea: false
+                                }
+                            }],
+                            yAxes: [{
+                                gridLines: {
+                                    drawOnChartArea: false
+                                }
+                            }]
+                        },
+                        title: {
+                            display: false
+                        }
+                    }
+                });
+
+                let ctx30InCare = document.getElementById('30DaysChartInCare').getContext('2d');
+                new Chart(ctx30InCare, {
+                    type: 'line',
+                    data: {
+                        labels: day,
+                        datasets: [{
+                            label: "In Care",
+                            borderColor: "#0067bf",
+                            data: detailInCare,
+                            fill: false,
+                            lineTension: 0,
+                            radius: 5
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            xAxes: [{
+                                gridLines: {
+                                    drawOnChartArea: false
+                                }
+                            }],
+                            yAxes: [{
+                                gridLines: {
+                                    drawOnChartArea: false
+                                }
+                            }]
+                        },
+                        title: {
+                            display: false
+                        }
+                    }
                 });
             })
             .catch(error => console.log(error));
