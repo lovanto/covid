@@ -71,7 +71,7 @@ class DataSource {
 
                 const ctx = document.getElementById('myChart').getContext('2d');
                 const myChart = new Chart(ctx, {
-                    type: 'pie',
+                    type: 'bar',
                     data: {
                         labels: ["Recovered", "Confirmed", "Deaths"],
                         datasets: [{
@@ -80,12 +80,11 @@ class DataSource {
                         }]
                     },
                     options: {
-                        showTooltips: false,
+                        legend: {
+                            display: false
+                        },
                         tooltips: {
                             enabled: false
-                        },
-                        hover: {
-                            mode: null
                         },
                         title: {
                             display: true,
