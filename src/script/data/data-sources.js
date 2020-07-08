@@ -195,9 +195,9 @@ class DataSource {
                 let confirmed = [];
                 let deaths = [];
                 let incare = [];
-                let totalData = responseJson.data.length - 2;
-                let totalData7 = responseJson.data.length - 9;
-                let totalData30 = responseJson.data.length - 32;
+                let totalData = responseJson.data.length - 1;
+                let totalData7 = responseJson.data.length - 8;
+                let totalData30 = responseJson.data.length - 31;
 
                 recovered[0] = responseJson.data[totalData].jumlahPasienSembuh;
                 confirmed[0] = responseJson.data[totalData].jumlahKasusKumulatif;
